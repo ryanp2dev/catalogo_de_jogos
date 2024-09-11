@@ -1,1 +1,1 @@
-# catalogo_de_jogos
+# Trabalho de Web 2 - Catálogo de Jogos - Nicolas, Ryan e Lucas - 3715 
