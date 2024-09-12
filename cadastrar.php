@@ -39,12 +39,12 @@
             <br><br>
 
             <label for="valor">Valor em Reais:</label>
-            <input type="number" name="valor" id="valor" step="0.01" min="0" required>
+            <input type="number" name="valor" id="valor"  step="0.01" min="0" required>
 
             <br><br>
 
             <button type="submit" class="btn btn-primary">Cadastrar Jogo</button>
-            <a href="./listar.php" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Voltar para a Lista de Jogos</a>
+            <a href="./index.php" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Voltar para a Lista de Jogos</a>
         </form>
     </div>
 </body>

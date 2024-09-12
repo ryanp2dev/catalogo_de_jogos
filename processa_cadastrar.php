@@ -13,15 +13,15 @@ if (!empty($_POST)) {
     $stmt->bindValue(':categoria', $_POST['categoria'], PDO::PARAM_STR);
     $stmt->bindValue(':classificacao', $_POST['classificacao'], PDO::PARAM_STR);
     $stmt->bindValue(':ano', $_POST['ano'], PDO::PARAM_INT);
-    $stmt->bindValue(':valor', $_POST['valor'], PDO::PARAM_INT);
+    $stmt->bindValue(':valor', $_POST['valor'], PDO::PARAM_STR);
 
     if ($stmt->execute() == true) {
         $msg = 'Jogo cadastrado!';
-        header('Location: ./listar.php?msgSucesso=' . $msg);
+        header('Location: ./index.php?msgSucesso=' . $msg);
     }
     else {
         $msg = 'Erro no PROCESSAMENTO DO CADASTRAR -> Arquivo "processa_cadastrar.php"';
-        header('Location: listar.php?msgErro=' . $msg);
+        header('Location: index.php?msgErro=' . $msg);
         // "Falha ao cadastrar esse jogo. Tente novamente mais tarde!"
     }
 }
