@@ -24,15 +24,15 @@ try {
 
 
     if ($stmt->execute()) { // executar a SQL
-        $msg = 'Dados da pessoa atualizados com sucesso!';
+        $msg = 'Dados do '  .$_POST['nome'] .  ' atualizados com sucesso!';
         header('Location: index.php?msgSucesso=' . $msg);
     }
     else {
-        $msg = 'Falha ao atualizar os dados da pessoa. Tente novamente mais tarde!';
+        $msg = 'Falha ao atualizar os dados do '  .$_POST['nome'] .  ' . Tente novamente mais tarde!';
         header('Location: index.php?msgErro=' . $msg);
     }
 } catch (PDOException $e) {    
-    $msg = 'Não foi possível atualizar os dados da pessoa. Tente novamente mais tarde!';
+    $msg = 'Não foi possível atualizar os dados do '  .$_POST['nome'] .  '. Tente novamente mais tarde!';
     header('Location: listar.php?msgErro=' . $msg);
 }
 ?>

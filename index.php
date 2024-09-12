@@ -32,7 +32,7 @@ catch (PDOException $e) {
         <h2>Jogos:</h2>
 
         <?php if (!empty($_GET['msgSucesso'])) { ?>
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success" id="msgSucesso" role="alert">
                 <?php echo $_GET['msgSucesso']; ?>
             </div>
         <?php } if (!empty($_GET['msgErro']))  { ?>
@@ -67,7 +67,7 @@ catch (PDOException $e) {
             } else if ($jogos['classificacao'] == 'adulto') { echo '<img src="./imagens/adulto.png" width="40" height="40">';
             } else {echo 'Sem classificação!';}?></td>
             <td><?php echo $jogos['ano']; ?></td>
-            <td><?php echo $jogos['valor']; ?></td>
+            <td><?php echo  number_format($jogos['valor'],2,",","."); ?></td>
             <td>
             <a href="./alterar.php?id=<?php echo $jogos['id']; ?>" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">Alterar</a>
             <a href="./excluir.php?id=<?php echo $jogos['id']; ?>" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">Excluir</a>
@@ -79,3 +79,36 @@ catch (PDOException $e) {
     </div>
 </body>
 </html>
+
+<script>
+// Exibir a mensagem de erro por 5 segundos
+document.addEventListener("DOMContentLoaded", function() {
+    let msgErro = document.getElementById('msgErro');
+    if (msgErro) {
+        // Exibe a mensagem
+        msgErro.style.display = 'block';
+
+        // Após 5 segundos, oculta a mensagem
+        setTimeout(function() {
+            msgErro.style.display = 'none';
+        }, 5000); // 5000 milissegundos = 5 segundos
+    }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    let msgErro = document.getElementById('msgSucesso');
+    if (msgErro) {
+        // Exibe a mensagem
+        msgErro.style.display = 'block';
+
+        // Após 5 segundos, oculta a mensagem
+        setTimeout(function() {
+            msgErro.style.display = 'none';
+        }, 5000); // 5000 milissegundos = 5 segundos
+    }
+});
+
+
+</script>
