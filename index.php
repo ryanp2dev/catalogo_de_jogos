@@ -1,22 +1,49 @@
 <?php 
 
 require_once './conexaoBD.php';
-
 try {
+  
+    $mensagem = ''; 
+    
+    // Verifica se uma pesquisa foi feita
+    if (isset($_GET['buscar']) && !empty(trim($_GET['buscar']))) {
+        $buscar = $_GET['buscar'];
+        $sql = "SELECT * FROM jogos WHERE nome = :buscar";
+        
+        $stmt = $conexao->prepare($sql);
+       
+        $stmt->bindParam(':buscar', $buscar, PDO::PARAM_STR);
+        if ($stmt->execute()) {
+            $listaJogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            // Verifica se a busca retornou algum resultado
+            if (!empty($listaJogos)) {
+                $mensagem = 'Dados encontrados para o termo ' . $buscar . '.';
+                $mensagemTipo = 'success';
+            } else {
+                $mensagem = 'Nenhum dado encontrado para o termo ' .$buscar . '.';
+                $mensagemTipo = 'warning';
 
-    $sql = "SELECT * FROM jogos ORDER BY id";
-
-    $stmt = $conexao->prepare($sql);
-
-    $stmt->execute();
-
-    $listaJogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+            }
+        } else {
+            $mensagem = 'Falha ao buscar os dados. Tente novamente mais tarde.';
+            $mensagemTipo = 'danger';
+        }
+    } else {
+        // Exibe todos os jogos se não houver pesquisa
+        $sql = "SELECT * FROM jogos ORDER BY id";
+        $stmt = $conexao->prepare($sql);
+        $stmt->execute();
+        
+        $listaJogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+} catch (PDOException $e) {
+    $mensagem = 'Erro ao listar os dados: ' . $e->getMessage();
 }
-catch (PDOException $e) {
-    echo '<br/>Erro na LISTAGEM -> Arquivo "listar.php"' . $e->getMessage();
-    // "Falha no sistema, por favor contate o suporte!"
-}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -28,18 +55,54 @@ catch (PDOException $e) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Catalogo de Jogos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+        </li>   
+      </ul>
+      <form class="d-flex" role="search"  method="GET">
+        <input class="form-control me-2"  type="search" placeholder="Search" name="buscar" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
     <div class="container">
+
+
+    <div class="container mt-4">
+ 
+    <?php if ($mensagem): ?>
+        <div id="timer" class="alert alert-<?PHP ECHO $mensagemTipo?>" role="alert">
+            <?php echo $mensagem; ?>
+        </div>
+    <?php endif; ?>
         <h2>Jogos:</h2>
 
         <?php if (!empty($_GET['msgSucesso'])) { ?>
-            <div class="alert alert-success" id="msgSucesso" role="alert">
+            <div id="timer" class="alert alert-success" id="msgSucesso" role="alert">
                 <?php echo $_GET['msgSucesso']; ?>
             </div>
         <?php } if (!empty($_GET['msgErro']))  { ?>
-            <div class="alert alert-danger" role="alert">
+            <div id="timer" class="alert alert-danger" role="alert">
                 <?php echo $_GET['msgErro']; ?>
             </div>
         <?php } ?>
+
+
+
+
+        
     <a href="./cadastrar.php" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Novo Jogo</a>
     <table class="table">
     <thead>
@@ -77,38 +140,26 @@ catch (PDOException $e) {
     </tbody>
     </table>
     </div>
+    
+
+
+    <script>
+// Exibir a mensagem de resultado por 5 segundos
+document.addEventListener("DOMContentLoaded", function() {
+    let mensagem = document.getElementById('timer');
+    if (mensagem) {
+        mensagem.style.display = 'block'; // Exibe a mensagem
+
+        // Após 5 segundos, oculta a mensagem
+        setTimeout(function() {
+            mensagem.style.display = 'none';
+        }, 5000); // 5000 milissegundos = 5 segundos
+    }
+});
+</script>
 </body>
 </html>
 
-<script>
-// Exibir a mensagem de erro por 5 segundos
-document.addEventListener("DOMContentLoaded", function() {
-    let msgErro = document.getElementById('msgErro');
-    if (msgErro) {
-        // Exibe a mensagem
-        msgErro.style.display = 'block';
-
-        // Após 5 segundos, oculta a mensagem
-        setTimeout(function() {
-            msgErro.style.display = 'none';
-        }, 5000); // 5000 milissegundos = 5 segundos
-    }
-});
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    let msgErro = document.getElementById('msgSucesso');
-    if (msgErro) {
-        // Exibe a mensagem
-        msgErro.style.display = 'block';
-
-        // Após 5 segundos, oculta a mensagem
-        setTimeout(function() {
-            msgErro.style.display = 'none';
-        }, 5000); // 5000 milissegundos = 5 segundos
-    }
-});
-
-
-</script>
