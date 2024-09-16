@@ -43,7 +43,7 @@
             <div class="col-md-6 mb-4">
                 <div data-mdb-input-init class="form-floating-custom">
                 <input type="text" class="form-control" name="categoria" id="categoria" placeholder=" " required>
-                <label for="categoria">Categoria (ou Gênero):</label>
+                <label for="categoria">Categoria (ou Gênero)</label>
                 </div>
             </div>
             </div>
@@ -59,7 +59,7 @@
                 <option value="jovem">+ 16 anos</option>
                 <option value="adulto">+ 18 anos</option>
             </select>
-            <label for="classificacao">Classificação:</label>
+            <label for="classificacao">Classificação</label>
             </div>
 
 
@@ -68,14 +68,14 @@
             <div class="col-md-6 mb-4">
                 <div data-mdb-input-init class="form-floating-custom">
                 <input type="number" name="ano" id="ano" min="1900" class="form-control" placeholder=" " required>
-                <label for="ano">Ano de Lançamento:</label>
+                <label for="ano">Ano de Lançamento</label>
                 </div>
             </div>
             <!-- valor -->
             <div class="col-md-6 mb-4">
                 <div data-mdb-input-init class="form-floating-custom">
                 <input type="number" name="valor" id="valor"  step="0.01" min="0" class="form-control" placeholder=" " required>
-                <label for="valor">Valor em Reais:</label>
+                <label for="valor">Valor em Reais</label>
                 </div>
             </div>
             </div>

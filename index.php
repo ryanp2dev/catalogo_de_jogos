@@ -109,7 +109,7 @@ try {
         <tr>
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
-        <th scope="col">Categoria (ou Gênero):</th>
+        <th scope="col">Categoria (ou Gênero)</th>
         <th scope="col">Classificação</th>
         <th scope="col">Ano de Lançamento</th>
         <th scope="col">Valor em Reais</th>        
