@@ -1,6 +1,6 @@
 <?php 
 
-require_once './conexaoBD.php';
+require_once '../conexao/conexaoBD.php';
 
 if (!empty($_POST)) {
     // print_r($_POST);
@@ -17,12 +17,11 @@ if (!empty($_POST)) {
 
     if ($stmt->execute() == true) {
         $msg = 'Jogo cadastrado!';
-        header('Location: ./index.php?msgSucesso=' . $msg);
+        header('Location: ../index.php?msgSucesso=' . $msg);
     }
     else {
-        $msg = 'Erro no PROCESSAMENTO DO CADASTRAR -> Arquivo "processa_cadastrar.php"';
-        header('Location: index.php?msgErro=' . $msg);
-        // "Falha ao cadastrar esse jogo. Tente novamente mais tarde!"
+        $msg = 'Falha ao cadastrar esse jogo. Tente novamente mais tarde!';
+        header('Location: ../index.php?msgErro=' . $msg);
     }
 }
 

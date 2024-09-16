@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="shortcut icon"
+      type="imagex/png"
+      href="../imagens/controle.ico"
+    />
     <title>Cadastrar Jogo no Catálogo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
     <section class="text-center">
         <!-- div imagem -->
     <div class="bg-image" style="
-        background-image: url('./imagens/fundo.jpg');
+        background-image: url('../imagens/fundo.jpg');
         height: 300px;
         background-repeat: no-repeat;
         background-position: center;
@@ -29,7 +34,7 @@
         <div class="col-lg-8">
 
         <h2>Novo Jogo</h2>
-        <form action="./processa_cadastrar.php" method="post">
+        <form action="../cadastrar/processa_cadastrar.php" method="post">
         <br>
             <div class="row">
             <!-- Nome -->
@@ -81,7 +86,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Cadastrar Jogo</button>
-            <a href="./index.php" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Voltar para a Lista de Jogos</a>
+            <a href="../index.php" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Voltar para a Lista de Jogos</a>
         </form>
         </div>
         </div>    

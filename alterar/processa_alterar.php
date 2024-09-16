@@ -1,5 +1,5 @@
 <?php 
-require_once 'conexaoBD.php';
+require_once '../conexao/conexaoBD.php';
 
 try {
     $sql = 'UPDATE 
@@ -25,14 +25,14 @@ try {
 
     if ($stmt->execute()) { // executar a SQL
         $msg = 'Dados do '  .$_POST['nome'] .  ' atualizados com sucesso!';
-        header('Location: index.php?msgSucesso=' . $msg);
+        header('Location: ../index.php?msgSucesso=' . $msg);
     }
     else {
         $msg = 'Falha ao atualizar os dados do '  .$_POST['nome'] .  ' . Tente novamente mais tarde!';
-        header('Location: index.php?msgErro=' . $msg);
+        header('Location: ../index.php?msgErro=' . $msg);
     }
 } catch (PDOException $e) {    
     $msg = 'Não foi possível atualizar os dados do '  .$_POST['nome'] .  '. Tente novamente mais tarde!';
-    header('Location: listar.php?msgErro=' . $msg);
+    header('Location: ../listar/listar.php?msgErro=' . $msg);
 }
 ?>
