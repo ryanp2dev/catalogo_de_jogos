@@ -1,3 +1,5 @@
+--BANCO DE DADOS: catalogo
+
 CREATE TABLE jogos(
     id serial not null,
     nome varchar(50) not null,
