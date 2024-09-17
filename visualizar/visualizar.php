@@ -107,7 +107,9 @@ catch (PDOException $e) {
                 <label for="valor">Valor em Reais:</label>
                 </div>
             </div>
-            </div>     
+            </div>
+            <a href="../alterar/alterar.php?id=<?php echo $jogos['id']; ?>" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">Alterar</a>
+            <a href="../excluir/excluir.php?id=<?php echo $jogos['id']; ?>" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">Excluir</a>     
             <a href="../index.php" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Voltar</a>
         </form>
         </div>

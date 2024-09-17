@@ -110,7 +110,7 @@ catch (PDOException $e) {
             </div>
             </div>
        
-            <button type="submit" class="btn btn-primary">Alterar</button>
+            <button type="submit" class="btn btn-info">Alterar</button>
             <a href="../index.php" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Voltar</a>
         </form>
         </div>

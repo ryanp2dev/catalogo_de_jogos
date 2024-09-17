@@ -85,7 +85,7 @@
             </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Cadastrar Jogo</button>
+            <button type="submit" class="btn btn-success">Cadastrar Jogo</button>
             <a href="../index.php" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Voltar para a Lista de Jogos</a>
         </form>
         </div>
