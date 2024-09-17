@@ -57,6 +57,7 @@ try {
       href="./imagens/controle.ico"
     />
     <title>Jogos Cadastrados</title>
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         .btn-secondary {
@@ -80,16 +81,16 @@ try {
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-  <img src="./imagens/controle.png" width="40" height="40">
+    <img src="./imagens/controle.png" width="40" height="40">
     <a class="navbar-brand" href="#">Catálogo de Jogos</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
-        </li>   
+        </li>    -->
       </ul>
       <form class="d-flex" role="search"  method="GET">
         <input class="form-control me-2"  type="search" placeholder="Buscar por nome" name="buscar" aria-label="Search">
@@ -111,7 +112,9 @@ try {
             <?php echo $mensagem; ?>
         </div>
     <?php endif; ?>
-        <h2>Jogos:</h2>
+        <div class="row center">
+            <h2>Jogos:</h2>
+        </div>
 
         <?php if (!empty($_GET['msgSucesso'])) { ?>
             <div id="timer" class="alert alert-success" id="msgSucesso" role="alert">
@@ -123,14 +126,13 @@ try {
             </div>
         <?php } ?>
 
-
-
-
-        
-    <a href="./cadastrar/cadastrar.php" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Novo Jogo</a>
+  
+    <a href="./cadastrar/cadastrar.php" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">+ Novo Jogo</a>
+    <br>
+    <br>
     <table class="table">
     <thead>
-        <tr>
+        <tr class="table-info">
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
         <th scope="col">Categoria (ou Gênero)</th>
