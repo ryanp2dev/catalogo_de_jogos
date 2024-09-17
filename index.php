@@ -59,30 +59,12 @@ try {
     <title>Jogos Cadastrados</title>
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        .btn-secondary {
-        --bd-violet-bg: #712cf9;
-        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-        --bs-btn-font-weight: 0;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet-bg);
-        --bs-btn-border-color: var(--bd-violet-bg);
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-      }
-    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <img src="./imagens/controle.png" width="40" height="40">
-    <a class="navbar-brand" href="#">Catálogo de Jogos</a>
+    <a class="navbar-brand" href="./index.php">Catálogo de Jogos</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -93,7 +75,7 @@ try {
         </li>    -->
       </ul>
       <form class="d-flex" role="search"  method="GET">
-        <input class="form-control me-2"  type="search" placeholder="Buscar por nome" name="buscar" aria-label="Search">
+        <input class="form-control me-2"  type="search" placeholder="Digite o Nome aqui" name="buscar" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
     </div>
@@ -158,9 +140,9 @@ try {
             <td><?php echo $jogos['ano']; ?></td>
             <td><?php echo  number_format($jogos['valor'],2,",","."); ?></td>
             <td>
-            <a href="./visualizar/visualizar.php?id=<?php echo $jogos['id']; ?>" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">Visualizar</a>
-            <a href="./alterar/alterar.php?id=<?php echo $jogos['id']; ?>" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">Alterar</a>
-            <a href="./excluir/excluir.php?id=<?php echo $jogos['id']; ?>" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">Excluir</a>
+            <a href="./visualizar/visualizar.php?id=<?php echo $jogos['id']; ?>" class="btn btn-outline-secondary" tabindex="-1" role="button" aria-disabled="true">Visualizar</a>
+            <a href="./alterar/alterar.php?id=<?php echo $jogos['id']; ?>" class="btn btn-outline-info" tabindex="-1" role="button" aria-disabled="true">Alterar</a>
+            <a href="./excluir/excluir.php?id=<?php echo $jogos['id']; ?>" class="btn btn-outline-danger" tabindex="-1" role="button" aria-disabled="true">Excluir</a>
             </td>
         </tr>
         <?php } ?>            
@@ -168,7 +150,7 @@ try {
     </table>
     </div>
     
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script>
 // Exibir a mensagem de resultado por 5 segundos
