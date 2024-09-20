@@ -1,6 +1,6 @@
 <?php 
 
-require_once 'conexaoBD.php';
+require_once '../conexao/conexaoBD.php';
 
 try {
     // preparar / montar a SQL
@@ -17,7 +17,7 @@ try {
 }
 catch (PDOException $e) {
     $msg = 'Falha ao realizar busca na base de dados.';
-    header('Location: index.php?msgErro=' . $msg);
+    header('Location: ../index.php?msgErro=' . $msg);
 }
 ?>
 
@@ -26,15 +26,20 @@ catch (PDOException $e) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="shortcut icon"
+      type="imagex/png"
+      href="../imagens/controle.ico"
+    />
     <title>Alterar Jogo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
     <section class="text-center">
                 <!-- div imagem -->
     <div class="bg-image" style="
-        background-image: url('./imagens/fundo.jpg');
+        background-image: url('../imagens/fundo.jpg');
         height: 300px;
         background-repeat: no-repeat;
         background-position: center;
@@ -52,7 +57,7 @@ catch (PDOException $e) {
 
     <div class="container">
         <h2>Alterar Jogos</h2>
-        <form action="processa_alterar.php" method="post">
+        <form action="../alterar/processa_alterar.php" method="post">
             <br>
             <input type="hidden" name="id" value="<?php echo $jogos['id']; ?>">
 
@@ -105,8 +110,8 @@ catch (PDOException $e) {
             </div>
             </div>
        
-            <button type="submit" class="btn btn-primary">Alterar</button>
-            <a href="index.php" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Voltar</a>
+            <button type="submit" class="btn btn-info">Alterar</button>
+            <a href="../index.php" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Voltar</a>
         </form>
         </div>
         </div>

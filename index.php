@@ -1,6 +1,6 @@
 <?php 
 
-require_once './conexaoBD.php';
+require_once './conexao/conexaoBD.php';
 try {
   
     $mensagem = ''; 
@@ -51,25 +51,36 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="shortcut icon"
+      type="imagex/png"
+      href="./imagens/controle.ico"
+    />
     <title>Jogos Cadastrados</title>
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
+<<<<<<< HEAD
     <a class="navbar-brand" href="index.php">Catalogo de Jogos</a>
+=======
+    <img src="./imagens/controle.png" width="40" height="40">
+    <a class="navbar-brand" href="./index.php">Catálogo de Jogos</a>
+>>>>>>> 469a2af90e13d8a978bc05d0ee582431543eaaca
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-        </li>   
+        <!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+        </li>    -->
       </ul>
       <form class="d-flex" role="search"  method="GET">
-        <input class="form-control me-2"  type="search" placeholder="Search" name="buscar" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2"  type="search" placeholder="Digite o Nome aqui" name="buscar" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
     </div>
   </div>
@@ -87,7 +98,9 @@ try {
             <?php echo $mensagem; ?>
         </div>
     <?php endif; ?>
-        <h2>Jogos:</h2>
+        <div class="row center">
+            <h2>Jogos:</h2>
+        </div>
 
         <?php if (!empty($_GET['msgSucesso'])) { ?>
             <div id="timer" class="alert alert-success" id="msgSucesso" role="alert">
@@ -99,17 +112,16 @@ try {
             </div>
         <?php } ?>
 
-
-
-
-        
-    <a href="./cadastrar.php" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Novo Jogo</a>
+  
+    <a href="./cadastrar/cadastrar.php" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">+ Novo Jogo</a>
+    <br>
+    <br>
     <table class="table">
     <thead>
-        <tr>
+        <tr class="table-info">
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
-        <th scope="col">Categoria (ou Gênero):</th>
+        <th scope="col">Categoria (ou Gênero)</th>
         <th scope="col">Classificação</th>
         <th scope="col">Ano de Lançamento</th>
         <th scope="col">Valor em Reais</th>        
@@ -132,8 +144,9 @@ try {
             <td><?php echo $jogos['ano']; ?></td>
             <td><?php echo  number_format($jogos['valor'],2,",","."); ?></td>
             <td>
-            <a href="./alterar.php?id=<?php echo $jogos['id']; ?>" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">Alterar</a>
-            <a href="./excluir.php?id=<?php echo $jogos['id']; ?>" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">Excluir</a>
+            <a href="./visualizar/visualizar.php?id=<?php echo $jogos['id']; ?>" class="btn btn-outline-secondary" tabindex="-1" role="button" aria-disabled="true">Visualizar</a>
+            <a href="./alterar/alterar.php?id=<?php echo $jogos['id']; ?>" class="btn btn-outline-info" tabindex="-1" role="button" aria-disabled="true">Alterar</a>
+            <a href="./excluir/excluir.php?id=<?php echo $jogos['id']; ?>" class="btn btn-outline-danger" tabindex="-1" role="button" aria-disabled="true">Excluir</a>
             </td>
         </tr>
         <?php } ?>            
@@ -141,7 +154,7 @@ try {
     </table>
     </div>
     
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script>
 // Exibir a mensagem de resultado por 5 segundos

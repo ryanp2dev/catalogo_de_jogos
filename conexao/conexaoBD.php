@@ -12,7 +12,7 @@ try {
     $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 } catch (PDOException $e) {
-    echo '<br/>Erro na CONEXÃO COM O BANCO DE DADOS -> Arquivo "conexaoBD.php"' . $e->getMessage();
+    echo '<br/>Erro na CONEXÃO COM O BANCO DE DADOS' . $e->getMessage();
     // "Falha no sistema, por favor contate o suporte!"
 }
 ?>

@@ -88,6 +88,11 @@ h2 {
     color: #007bff;
 }
 
-/* .color-form {
-    background-color: #3b3b3b;
-} */
+img {
+    margin-right: 20px;
+}
+
+.center {
+    width: 100%;
+    text-align: center;
+}
